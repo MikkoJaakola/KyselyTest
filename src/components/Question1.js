@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 export default function Question1 () {
-
+/*
     const [values, setValues] = React.useState([]);
 
     const [question, setQuestion] = useState('');
@@ -57,25 +57,30 @@ export default function Question1 () {
   
   
   const classes = useStyles();
+  */
+
+ const [value, setValue] = React.useState('female');
+
+ const handleChange = (event) => {
+   setValue(event.target.value);
+ };
+
+
+
 
   return (
     <div>
     
-
-    <p className={classes.root}>Valitse sinua parhaiten kuvaava vaihtoehto</p>
-
-<FormControl component="fieldset">
-
-<FormLabel className={classes.title} component="legend" >{question}</FormLabel>
-
-<RadioGroup  aria-label="gender" name="gender1" value={fetchdata} onChange={handleChange}>
-<FormControlLabel value={content} control={<Radio />} label={content} />
-<FormControlLabel value={content1} control={<Radio />} label={content1} /> 
-<FormControlLabel value={content2} control={<Radio />} label={content2} />
-
-</RadioGroup>
-
-</FormControl>
+    <FormControl component="fieldset">
+      <FormLabel component="legend">Paras TV-sarja?</FormLabel>
+      <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+        <FormControlLabel value="female" control={<Radio />} label="Kummeli" />
+        <FormControlLabel value="male" control={<Radio />} label="Pulkkinen" />
+        <FormControlLabel value="other" control={<Radio />} label="Ketonen&Myllyrinne" />
+        <FormControlLabel value="disabled" disabled control={<Radio />} label="(Disabled option)" />
+      </RadioGroup>
+    </FormControl>
+ 
 
 
 </div>   
